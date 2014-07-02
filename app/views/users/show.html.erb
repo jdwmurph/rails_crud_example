@@ -1,0 +1,11 @@
+
+
+<h1>This is <%= current_user.email %>'s Profile page.</h1>
+
+<a href="/users/<%= current_user.id %>/edit">Edit</a> the user
+<form action="/users/<%= current_user.id%>" method="post">
+  <%= token_tag %>
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Delete</button>
+</form>
+
