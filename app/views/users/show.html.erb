@@ -9,3 +9,16 @@
   <button type="submit">Delete</button>
 </form>
 
+<h1>Notes</h1>
+
+<%= form_for(@note, url: "/users/#{ current_user.id }/notes") do |f| %>
+ <p><%= f.label :message %></p>
+ <p><%= f.text_field :message %></p>
+ <p><%= f.submit %></p>
+<% end %>
+
+<ul>
+  <% current_user.notes.each do |note| %>
+    <li><%=note.message%></li>
+  <% end %>
+</ul>

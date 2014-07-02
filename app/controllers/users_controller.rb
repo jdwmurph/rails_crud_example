@@ -8,13 +8,19 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @note = Note.new
+  end
+
+  def edit
+  end
+
   def create
     User.create(user_params)
     redirect_to login_path
   end
 
   def update
-    binding.pry
     user = User.find(current_user)
     user.update(user_params)
     redirect_to user_path(current_user)
